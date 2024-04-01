@@ -1,0 +1,13 @@
+[Unit]
+Description=Twingate Connector UI
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+ExecStart=flask --app server run -h 0.0.0.0 -p 80
+Restart=on-failure
+WorkingDirectory=/home/twingate/connector-local-ui/backend
+
+[Install]
+WantedBy=multi-user.target
